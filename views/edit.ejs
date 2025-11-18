@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><title>Edit Book</title></head>
+<body>
+  <h2>Edit Book</h2>
+  <form method="POST" action="/edit/<%= book._id %>">
+    <label>Title:</label>
+    <input name="title" value="<%= book.title %>" required><br>
+
+    <label>Author:</label>
+    <input name="author" value="<%= book.author %>"><br>
+
+    <label>Genre:</label>
+    <input name="genre" value="<%= book.genre %>"><br>
+
+    <label>Year:</label>
+    <input name="year" value="<%= book.year %>" type="number"><br>
+
+    <label>Available:</label>
+    <input type="checkbox" name="available" <%= book.available ? 'checked' : '' %>><br>
+
+    <button type="submit">Update</button>
+  </form>
+
+  <a href="/">← Back to List</a>
+</body>
+</html>
