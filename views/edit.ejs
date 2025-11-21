@@ -3,6 +3,14 @@
 <head><title>Edit Book</title></head>
 <body>
   <h2>Edit Book</h2>
+  <a href="/logout">Logout</a>
+
+  <p>
+    <% if (book.bookId) { %>
+      Book ID: <strong><%= book.bookId %></strong>
+    <% } %>
+  </p>
+
   <form method="POST" action="/edit/<%= book._id %>">
     <label>Title:</label>
     <input name="title" value="<%= book.title %>" required><br>
@@ -16,6 +24,9 @@
     <label>Year:</label>
     <input name="year" value="<%= book.year %>" type="number"><br>
 
+    <label>Content:</label><br>
+    <textarea name="content" rows="4" cols="40"><%= book.content || "" %></textarea><br>
+
     <label>Available:</label>
     <input type="checkbox" name="available" <%= book.available ? 'checked' : '' %>><br>
 
@@ -25,3 +36,4 @@
   <a href="/">← Back to List</a>
 </body>
 </html>
+

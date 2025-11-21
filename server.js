@@ -5,9 +5,11 @@ const session = require("cookie-session");
 
 const app = express();
 
-mongoose.connect("mongodb+srv://gpUser:4416@gpcluster.jjoi2dn.mongodb.net/bookDB?appName=gpCluster")
+mongoose.connect("mongodb+srv://mu_user:hkmu@cluster0.vvxyhwj.mongodb.net/bookDB?appName=Cluster0")
   .then(() => console.log("Connected to MongoDB Atlas"))
   .catch(err => console.error(err));
+  
+  
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
