@@ -1,0 +1,11 @@
+<h2>Book List</h2>
+<a href="/create">Add Book</a> | <a href="/logout">Logout</a>
+<ul>
+  <% books.forEach(b => { %>
+    <li>
+      <strong><%= b.title %></strong> by <%= b.author %>
+      <a href="/edit/<%= b._id %>">Edit</a>
+      <a href="/delete/<%= b._id %>">Delete</a>
+    </li>
+  <% }) %>
+</ul>
