@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head><title>Edit Book</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-yellow-50 flex items-center justify-center">
+  <div class="bg-white rounded-3xl shadow-2xl p-12 w-full max-w-3xl">
+    <h1 class="text-4xl font-bold text-center py-8">Edit Book</h1>
+    <form method="POST" action="/edit/<%= book._id %>" class="space-y-6 px-12 pb-12">
+      <label>Title:</label><br><input name="title" value="<%= book.title %>" required class="w-full px-6 py-4 rounded-xl border"><br>
+      <label>Author:</label><br><input name="author" value="<%= book.author %>" class="w-full px-6 py-4 rounded-xl border"><br>
+      <label>Genre:</label><br><input name="genre" value="<%= book.genre %>" class="w-full px-6 py-4 rounded-xl border"><br>
+      <label>Year:</label><br><input name="year" type="number" value="<%= book.year %>" class="w-full px-6 py-4 rounded-xl border"><br>
+      <label>Description:</label><br>
+      <textarea name="description" rows="4" cols="50" class="w-full px-6 py-4 rounded-xl border"><%= book.description %></textarea><br>
+      <label>Content:</label><br>
+      <textarea name="content" rows="10" cols="50" class="w-full px-6 py-4 rounded-xl border font-mono text-sm"><%= book.content %></textarea><br>
+      <button type="submit" class="w-full bg-gradient-to-r from-amber-600 to-red-600 hover:from-amber-700 hover:to-red-700 text-white font-bold py-5 rounded-xl text-xl shadow-xl">Update</button>
+    </form>
+    <div class="text-center pb-8">
+      <a href="/"><button class="px-10 py-4 bg-gray-500 hover:bg-gray-600 text-white rounded-xl">Back</button></a>
+    </div>
+  </div>
+</body>
+</html>
