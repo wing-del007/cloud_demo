@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../models/user");
 
 router.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", { error: req.query.error });
 });
 
 router.post("/login", async (req, res) => {
@@ -13,7 +13,7 @@ router.post("/login", async (req, res) => {
     req.session.user = user;
     res.redirect("/");
   } else {
-    res.send("Login failed. Try again.");
+    return res.redirect("/login?error=1");
   }
 });
 
