@@ -34,13 +34,13 @@ app.use(async (req, res, next) => {
 });
 
 app.use((req, res, next) => {
-  const publicPaths = ["/login"];  
-  if (publicPaths.includes(req.path)) return next();
+  if (req.path.startsWith("/api") || req.path === "/login") {
+    return next();
+  }
 
   if (!req.session.user) {
     return res.redirect("/login");
   }
-
   next();
 });
 
