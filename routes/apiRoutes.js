@@ -99,10 +99,13 @@ router.put("/books/append/:id", async (req, res) => {
 
 //Add the contact to Content
 router.put("/books/appendContent/:id", async (req, res) => {
-  const { extra } = req.body;
+  const { extraText } = req.body;
   const book = await Book.findById(req.params.id);
-  if (!book) return res.status(404).json({ error: "Book not found" });
-  book.content = (book.content || "") + "\n" + extra;
+  if (!book) {
+    return res.status(404).json({ error: "Book not found" });
+  }
+  book.content = (book.content || "") + "\n" + extraText;
+
   await book.save();
   res.json(book);
 });
