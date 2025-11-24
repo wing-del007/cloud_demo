@@ -33,6 +33,17 @@ app.use(async (req, res, next) => {
   next();
 });
 
+app.use((req, res, next) => {
+  const publicPaths = ["/login"];  
+  if (publicPaths.includes(req.path)) return next();
+
+  if (!req.session.user) {
+    return res.redirect("/login");
+  }
+
+  next();
+});
+
 app.use("/", require("./routes/authRoutes"));
 app.use("/", require("./routes/bookRoutes"));
 app.use("/api", require("./routes/apiRoutes"));
